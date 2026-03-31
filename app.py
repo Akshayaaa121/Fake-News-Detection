@@ -134,6 +134,5 @@ def api_predict():
 
     return jsonify({"prediction": int(pred)})
 
-# ---------------- Run ----------------
 if __name__ == "__main__":
     app.run(debug=True)

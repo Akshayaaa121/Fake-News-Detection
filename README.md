@@ -1,70 +1,67 @@
-# 🧠 Fake News Detection using Machine Learning + Gemini AI
+Fake News Detection using Machine Learning and Gemini AI
 
-An intelligent web application that classifies news articles as **Fake or Real** using Machine Learning, enhanced with **Gemini AI-powered reasoning** for explainability.
+This project is a web application that classifies news articles as fake or real using a machine learning model. To make the predictions more understandable, it also uses Gemini AI to provide explanations and insights.
 
----
+Key Features
+Classifies news articles as fake or real using a trained machine learning model
+Displays a confidence score for each prediction
+Highlights suspicious or unusual words in the input text
+Uses Gemini AI to generate explanations and reasoning for the prediction
+Combines machine learning with language models to improve interpretability
+Stores recent analyses for reference
 
-## 🚀 Key Features
 
-- 📰 **Fake vs Real Classification** using trained ML model  
-- 📊 **Confidence Score** to measure prediction reliability  
-- 🔍 **Suspicious Word Highlighting** for quick pattern detection  
-- 🤖 **Gemini AI Analysis** for human-like explanation and reasoning  
-- 🧠 **Explainable AI System** combining ML + LLM insights  
-- 📜 **Session History Tracking** of recent analyses  
+Tech Stack
+Backend: Flask (Python)
+Machine Learning: Scikit-learn
+NLP Processing: NLTK
+AI Model: Gemini AI
+Frontend: HTML, CSS
 
----
 
-## 🛠️ Tech Stack
+How It Works
+The user enters a news article into the application
+The text is preprocessed by:
+Converting to lowercase
+Removing special characters
+Eliminating stopwords
+The cleaned text is converted into numerical features using TF-IDF
+The machine learning model predicts whether the news is fake or real and provides a confidence score
 
-| Layer              | Technology |
-|-------------------|-----------|
-| Backend            | Flask (Python) |
-| Machine Learning   | Scikit-learn |
-| NLP Processing     | NLTK |
-| AI Model           | Gemini AI |
-| Frontend           | HTML, CSS |
 
----
+Gemini AI analyzes the same input to:
+Understand context
+Identify suspicious patterns
+Provide a short explanation
 
-## ⚙️ How It Works
 
-1. User inputs a news article  
-2. Text is preprocessed:
-   - Lowercasing  
-   - Removing special characters  
-   - Stopword removal  
-3. Data is vectorized using ML pipeline  
-4. ML model predicts:
-   - Fake / Real  
-   - Confidence score  
-5. Gemini AI analyzes:
-   - Context  
-   - Writing style  
-   - Suspicious language patterns  
-6. Final output shows:
-   - Prediction  
-   - Confidence  
-   - Explanation  
-   - Highlighted suspicious words  
+The final output includes:
+Prediction result
+Confidence score
+Explanation
+Highlighted suspicious words
+Running the Project Locally
 
----
 
-## ▶️ Run Locally
-
-### 1️⃣ Install dependencies
-```bash
+Install the required dependencies:
 pip install flask nltk scikit-learn google-generativeai
 
-2️⃣ Set Gemini API Key
+
+Set your Gemini API key:
 set GEMINI_API_KEY=your_api_key
 
-3️⃣ Run the application
+
+Run the application:
 python app.py
 
-4️⃣ Open in browser
+
+Open the application in your browser:
 http://127.0.0.1:5000/
 
-📸 Demo
+Demo:
+<img width="929" height="856" alt="Screenshot 2026-04-01 003022" src="https://github.com/user-attachments/assets/2027aa61-eb1e-4f9d-b605-1f229cb154e7" />
+<img width="915" height="683" alt="Screenshot 2026-04-01 003052" src="https://github.com/user-attachments/assets/3caa6c8c-8026-42c6-8cc3-1aaa1699515b" />
+
+
 <img width="929" height="856" alt="image" src="https://github.com/user-attachments/assets/72c78367-7d1a-4033-8021-3b501e344846" />
 <img width="915" height="683" alt="image" src="https://github.com/user-attachments/assets/771a511b-a2c0-436d-bcc7-01a537ed2950" />

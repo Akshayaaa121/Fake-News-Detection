@@ -59,8 +59,6 @@ Open the application in your browser:
 http://127.0.0.1:5000/
 
 Demo:
-<img width="929" height="856" alt="Screenshot 2026-04-01 003022" src="https://github.com/user-attachments/assets/2027aa61-eb1e-4f9d-b605-1f229cb154e7" />
-<img width="915" height="683" alt="Screenshot 2026-04-01 003052" src="https://github.com/user-attachments/assets/3caa6c8c-8026-42c6-8cc3-1aaa1699515b" />
 
 
 <img width="929" height="856" alt="image" src="https://github.com/user-attachments/assets/72c78367-7d1a-4033-8021-3b501e344846" />

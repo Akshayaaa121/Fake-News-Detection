@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>News Credibility Checker</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto;
+    margin: 0;
+    color: #1a1a1a;
+
+    background: url("https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?fit=crop&w=1920&q=80");
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+/* Overlay */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(250, 250, 250, 0.9);
+    z-index: -1;
+}
+
+.container {
+    max-width: 800px;
+    margin: 60px auto;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 28px;
+}
+
+.subtitle {
+    color: #666;
+    margin-bottom: 30px;
+}
+
+.card {
+    background: rgba(255,255,255,0.95);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+textarea {
+    width: 100%;
+    height: 150px;
+    border-radius: 6px;
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background: black;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #333;
+}
+
+.result {
+    padding: 10px;
+    border-radius: 6px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.fake {
+    background: #ffe5e5;
+    color: red;
+}
+
+.real {
+    background: #e6fff0;
+    color: green;
+}
+
+.bar {
+    height: 8px;
+    background: #eee;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+.fill {
+    height: 100%;
+    background: black;
+    border-radius: 10px;
+}
+
+.explain {
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.suspicious {
+    background: yellow;
+}
+
+.gemini {
+    white-space: pre-wrap;
+    font-size: 14px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🧠 News Credibility Checker</h1>
+<div class="subtitle">AI-powered fake news detection</div>
+
+<!-- FORM -->
+<div class="card">
+<form method="POST" action="/">
+    <textarea name="news_text" placeholder="Paste your news here...">{{ news_text }}</textarea>
+    <button type="submit">Analyze</button>
+</form>
+</div>
+
+<!-- RESULT -->
+{% if prediction %}
+<div class="card">
+
+<div class="result {{ 'fake' if prediction=='Fake News' else 'real' }}">
+    {{ prediction }}
+</div>
+
+<div class="bar">
+    <div class="fill" style="width: {{ confidence }}%"></div>
+</div>
+
+<div class="explain">
+    Confidence: {{ confidence }}% <br>
+    {{ explanation }}
+</div>
+
+</div>
+{% endif %}
+
+<!-- GEMINI -->
+
+<!-- TEXT -->
+{% if highlighted_text %}
+<div class="card">
+<strong>Analyzed Text:</strong><br><br>
+{{ highlighted_text|safe }}
+</div>
+{% endif %}
+
+<!-- HISTORY -->
+{% if history %}
+<div class="card">
+<strong>Recent Checks</strong>
+{% for item in history[-5:] %}
+<div>
+{{ item.text[:80] }}... → <b>{{ item.prediction }}</b>
+</div>
+{% endfor %}
+</div>
+{% endif %}
+
+</div>
+
+</body>
+</html>

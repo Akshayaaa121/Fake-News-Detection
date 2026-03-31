@@ -29,34 +29,6 @@ The cleaned text is converted into numerical features using TF-IDF
 The machine learning model predicts whether the news is fake or real and provides a confidence score
 
 
-Gemini AI analyzes the same input to:
-Understand context
-Identify suspicious patterns
-Provide a short explanation
-
-
-The final output includes:
-Prediction result
-Confidence score
-Explanation
-Highlighted suspicious words
-Running the Project Locally
-
-
-Install the required dependencies:
-pip install flask nltk scikit-learn google-generativeai
-
-
-Set your Gemini API key:
-set GEMINI_API_KEY=your_api_key
-
-
-Run the application:
-python app.py
-
-
-Open the application in your browser:
-http://127.0.0.1:5000/
 
 Demo:
 
